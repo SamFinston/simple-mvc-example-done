@@ -292,9 +292,10 @@ const searchDogName = (req, res) => {
     }
 
     // if a match, increment age
-    lastDogAdded.age++;
+    const obj = doc;
+    obj.age++;
 
-    const savePromise = lastDogAdded.save();
+    const savePromise = obj.save();
 
     savePromise.then(() => res.json({ name: doc.name, breed: doc.breed, age: doc.age }));
 
